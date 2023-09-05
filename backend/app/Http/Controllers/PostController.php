@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -11,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return response()->json(["posts" => $posts], 200);
     }
 
     /**
@@ -19,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return response()->json(["users" => $users], 200);
     }
 
     /**
@@ -27,7 +31,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return response()->json($request);
+        // dd($request->all());
+        // $user = User::pluck('id')->toArray();
+        $post = Post::create($request->all());
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->content = $request->content;
+        // $post->slug = $request->slug;
+        // $post->user_id = $request->user_id;
+        return response()->json(["post" => $post, "message" => "successfully created"], 200);
     }
 
     /**
@@ -43,7 +56,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        return response()->json(["post" => $post], 200);
     }
 
     /**
@@ -51,7 +65,14 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd($request);
+        $post = Post::find($id);
+        $post->update($request->all());
+        // $post->title = $request->title;
+        // $post->content = $request->content;
+        // $post->slug = $request->slug;
+        // $post->user_id = $request->user_id;
+        return response()->json(["post" => $post, "message" => "successfully updated"], 200);
     }
 
     /**
@@ -59,6 +80,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Post::destroy($id);
+        return response()->json(["message" => "successfully deleted"], 200);
     }
 }

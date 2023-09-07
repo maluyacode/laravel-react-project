@@ -1,7 +1,8 @@
 import React from 'react'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
 import Create from './Create'
 import App from './App'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 const RoutedApp = () => {
     return (

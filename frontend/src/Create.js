@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Nav from './Nav';
+import Footer from './Footer'
+
+
 const Create = () => {
 
     const [state, setState] = useState({
@@ -15,7 +18,7 @@ const Create = () => {
     return (
         <>
             <Nav />
-            < div className="container-fluid">
+            <div className="container p-xxl-5 p-sm-5">
                 <div>Create</div>
                 <form>
                     <div className='form-group'>
@@ -44,6 +47,7 @@ const Create = () => {
                     </div>
                 </form>
             </div>
+            <Footer />
         </>
     )
 }

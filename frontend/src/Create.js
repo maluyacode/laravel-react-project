@@ -6,6 +6,10 @@ import axios from 'axios';
 
 const Create = () => {
 
+    const styles = {
+        width: "50%",
+        // minWidth: "400px"
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -45,8 +49,8 @@ const Create = () => {
     return (
         <>
             <Nav />
-            <div className="container p-xxl-5 p-sm-5">
-                <div>Create</div>
+            <div className="container p-xxl-5 p-sm-5" style={styles}>
+                <h1 style={{ textAlign: "center" }}> Create</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label className='text-muted'>Title</label>
@@ -65,7 +69,7 @@ const Create = () => {
                         > </textarea>
                     </div>
                     <div className='form-group'>
-                        <label className='text-mute'>Slug</label>
+                        <label className='text-muted'>Slug</label>
                         <input type='text'
                             className='form-control'
                             value={slug}
@@ -73,16 +77,16 @@ const Create = () => {
                         />
                     </div>
                     <div className='form-group'>
-                        <label className='text-mute'>User</label>
+                        <label className='text-muted'>User</label>
                         <input type='text'
                             className='form-control'
                             value={user}
                             onChange={handleChange('user')}
                         />
                     </div>
-                    <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button style={{ marginTop: "20px" }} type='submit' className='btn btn-primary'>Submit</button>
                 </form>
-            </div>
+            </div >
             <Footer />
         </>
     )

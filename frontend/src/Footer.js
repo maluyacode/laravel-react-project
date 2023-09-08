@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className='text-center'>
             <hr />
-            <div>react app sample</div>
+            <div>React App Sample</div>
         </footer>
     );
 }

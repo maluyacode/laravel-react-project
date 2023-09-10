@@ -1,14 +1,13 @@
-// utilities
+
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 
-// static
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
-// components
+
 import Nav from './Nav';
 import Footer from './Footer'
-// import Create from './Create';
 
 
 const App = () => {

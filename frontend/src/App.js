@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
@@ -56,7 +57,7 @@ const App = () => {
             <h3>{post.title}</h3>
             <p>{post.content}</p>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <button className='btn btn-outline-primary' style={{ marginRight: "10px" }} >Edit</button>
+              <Link to={`/edit/${post.id}`} className='btn btn-outline-primary' style={{ marginRight: "10px" }} >Edit</Link>
               <button data-id={post.id} onClick={handleDelete} className='btn btn-outline-danger'>Delete</button>
             </div>
           </div>

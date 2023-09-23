@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer'
 import axios from 'axios';
 
 
 const Create = () => {
+
+    const navigate = useNavigate();
 
     const styles = {
         width: "50%",
@@ -16,7 +19,7 @@ const Create = () => {
         console.log(title, content, user)
 
         axios
-            .post('http://localhost:4000/api/post', state)
+            .post('http://localhost:8000/api/post', state)
             .then((res) => {
                 console.log(res.data);
                 setState({
@@ -25,9 +28,10 @@ const Create = () => {
                     user: '',
                     slug: "",
                 })
+                navigate('/')
             })
             .catch((err) => {
-                console.log(err.response.data.message);
+                console.log(err);
             })
     }
 

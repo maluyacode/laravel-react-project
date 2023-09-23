@@ -9,6 +9,7 @@ import './App.css';
 
 import Nav from './Nav';
 import Footer from './Footer'
+import PostList from './Postlist';
 
 
 const App = () => {
@@ -30,7 +31,6 @@ const App = () => {
   const handleDelete = e => {
     const id = e.target.getAttribute('data-id')
     if (window.confirm('Are you sure do you want to delete this post?')) {
-      alert('oks')
       axios
         .delete(`http://localhost:8000/api/post/${id}`, {
         })
@@ -52,14 +52,9 @@ const App = () => {
     <div className="App" >
       <Nav />
       <div className='container p-xxl-5 p-sm-5'>
-        {posts.map((post) => (
-          <div key={post.id} style={{ marginBottom: "50px" }}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Link to={`/edit/${post.id}`} className='btn btn-outline-primary' style={{ marginRight: "10px" }} >Edit</Link>
-              <button data-id={post.id} onClick={handleDelete} className='btn btn-outline-danger'>Delete</button>
-            </div>
+        {posts.map((post, i) => (
+          <div className='container' key={i}>
+            <PostList post={post} handleDelete={handleDelete} /><br />
           </div>
         ))}
       </div>

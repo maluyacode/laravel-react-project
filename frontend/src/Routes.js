@@ -5,6 +5,7 @@ import Create from './Create'
 import App from './App'
 import NotFound from './NotFound'
 import Edit from './Edit'
+import SinglePost from './SinglePost'
 
 const RoutedApp = () => {
     return (
@@ -14,6 +15,7 @@ const RoutedApp = () => {
                 <Route path='/create' exact="true" element={<Create />} />
                 <Route path='*' element={<NotFound />} />
                 <Route path="/edit/:id" element={<Edit />} />
+                <Route path="/post/:id" element={<SinglePost />} />
             </Routes>
         </Router>
     )
